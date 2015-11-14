@@ -11,7 +11,7 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first time you run, make sure this is set to False.
 # Then you can change it to False in order to run faster.
-load_from_file = False
+load_from_file = True
 
 # guys and girls in alphabetical order
 guys = ["Alec", "Austin", "Chuck", "Connor", "Devin", "Hunter", "Mike", "Nelson", "Tyler", "Zak"]
@@ -24,13 +24,16 @@ week2 = (["Chelsey", "Kiki", "Hannah", "Kayla", "Melanie", "Stacey", "Amanda", "
 week3 = (["Stacey", "Amanda", "Kiki", "Chelsey", "Rashida", "Britni", "Kayla", "Melanie", "Cheyenne", "Hannah"], 3)
 week4 = (["Amanda", "Stacey", "Kiki", "Chelsey", "Hannah", "Rashida", "Kayla", "Britni", "Melanie", "Cheyenne"], 2)
 week5 = (["Stacey", "Hannah", "Kiki", "Chelsey", "Cheyenne", "Melanie", "Britni", "Rashida", "Amanda", "Kayla"],2)
+week6 = (["Stacey","Cheyenne","Amanda","Chelsey","Rashida","Britni","Melanie","Kiki","Hannah","Kayla"], 3)
+week7 = (["Rashida","Kayla","Melanie","Chelsey","Britni","Amanda","Stacey","Kiki","Cheyenne","Hannah"], 3)
+week8 = (["Stacey", "Kiki", "Amanda","Chelsey" , "Rashida","Britni" ,"Melanie", "Kayla", "Cheyenne","Hannah"],3)
 
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5]
+allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8]
 
 # the matches that got denied in the truth booth
-truthBooth_denied = [("Hunter", "Kiki"), ("Devin", "Kiki"), ("Zak", "Kiki"), ("Chuck", "Britni")]
+truthBooth_denied = [("Hunter", "Kiki"), ("Devin", "Kiki"), ("Zak", "Kiki"), ("Chuck", "Britni"),("Chuck", "Kiki"),("Alec", "Melanie"), ("Nelson", "Kiki")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = [("Connor", "Chelsey")]
@@ -198,7 +201,7 @@ def printTable():
         print(matchPercents)
     print("|}")
 
-#printTable()
+printTable()
 
 
 

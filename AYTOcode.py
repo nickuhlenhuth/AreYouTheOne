@@ -11,7 +11,7 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first few times you run, make sure this is set to False.
 # Then you can change it to True in order to run faster.
-load_from_file = False
+load_from_file = True
 
 # guys and girls in alphabetical order
 guys = ["Asaf", "Cam", "Cameron", "Giovanni", "John", "Morgan", "Prosper", "Sam", "Stephen", "Tyler"]
@@ -101,9 +101,10 @@ def determineBestMatching():
     best_string = ""
     for i in range(len(best_matching)):
         best_string += '''||style="background:#CFCFCF"|''' + """'''"""+ guys[i] + ", " +best_matching[i]+"""'''"""
+    return best_string
 
 def printBestMatching():
-    determineBestMatching()
+    best_string = determineBestMatching()
     print('''{| class="wikitable"''')
     print("|-")
     print(best_string[1:])
@@ -201,7 +202,7 @@ def printTable():
 printTable()
 
 
-#if not load_from_file: #save matches into a file
-#    pickle.dump(possible, open("allmatches.p", "wb"))
+if not load_from_file: #save matches into a file
+    pickle.dump(possible, open("allmatches.p", "wb"))
 
 

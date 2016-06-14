@@ -11,32 +11,26 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first time you run, make sure this is set to False.
 # Then you can change it to False in order to run faster.
-load_from_file = True
+load_from_file = False
 
 # guys and girls in alphabetical order
-guys = ["Alec", "Austin", "Chuck", "Connor", "Devin", "Hunter", "Mike", "Nelson", "Tyler", "Zak"]
-girls = ["Amanda", "Britni", "Chelsey", "Cheyenne", "Hannah", "Kayla", "Kiki", "Melanie", "Rashida", "Stacey"]
+guys = ["Asaf", "Cam", "Cameron", "Giovanni", "John", "Morgan", "Prosper", "Sam", "Stephen", "Tyler"]
+girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", "Nicole", "Tori", "Victoria"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Stacey" was therfore with "Alec"
-week1 = (["Stacey", "Kiki", "Hannah", "Chelsey", "Melanie", "Britni", "Amanda", "Cheyenne", "Rashida", "Kayla"], 2)
-week2 = (["Chelsey", "Kiki", "Hannah", "Kayla", "Melanie", "Stacey", "Amanda", "Cheyenne", "Rashida", "Britni"], 0)
-week3 = (["Stacey", "Amanda", "Kiki", "Chelsey", "Rashida", "Britni", "Kayla", "Melanie", "Cheyenne", "Hannah"], 3)
-week4 = (["Amanda", "Stacey", "Kiki", "Chelsey", "Hannah", "Rashida", "Kayla", "Britni", "Melanie", "Cheyenne"], 2)
-week5 = (["Stacey", "Hannah", "Kiki", "Chelsey", "Cheyenne", "Melanie", "Britni", "Rashida", "Amanda", "Kayla"],2)
-week6 = (["Stacey","Cheyenne","Amanda","Chelsey","Rashida","Britni","Melanie","Kiki","Hannah","Kayla"], 3)
-week7 = (["Rashida","Kayla","Melanie","Chelsey","Britni","Amanda","Stacey","Kiki","Cheyenne","Hannah"], 3)
-week8 = (["Stacey", "Kiki", "Amanda","Chelsey" , "Rashida","Britni" ,"Melanie", "Kayla", "Cheyenne","Hannah"],3)
+week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Juia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
+
 
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8]
+allWeeks = [week1]
 
 # the matches that got denied in the truth booth
-truthBooth_denied = [("Hunter", "Kiki"), ("Devin", "Kiki"), ("Zak", "Kiki"), ("Chuck", "Britni"),("Chuck", "Kiki"),("Alec", "Melanie"), ("Nelson", "Kiki")]
+truthBooth_denied = [("Prosper", "Tori")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = [("Connor", "Chelsey")]
+truthBooth_confirmed = []
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):
@@ -72,41 +66,44 @@ for matching in iterable:
         continue
     else:
         possible.append(matching)
-if not load_from_file: #save matches into a file
-    pickle.dump(possible, open("allmatches.p", "wb")) 
-
+        
 print("There are " + str(len(possible)) + " possible matchings!")
+
+
+
 
 # initialize dictionary
 match_dictionary = {}
 for guy in guys:
     match_dictionary[guy] = [0] * len(girls)
-
+print("done with dict init")
 
 # fill in dictionary
 for matching in possible:
     for guy in guys:
         match_dictionary[guy][girls.index(matching[guys.index(guy)])] += float(1)/len(possible)
-
+print("done with dict fill")
 
 #determine best matching
-best_match_score = 0
-best_matching = []
-for matching in possible:
-    score = 0
-    for guy in guys:
-        score += match_dictionary[guy][girls.index(matching[guys.index(guy)])]
-    #print("score " + str(score))
-    if score > best_match_score:
-        best_match_score = score
-        best_matching = matching
-print("Best score " + str(best_match_score))
+def determineBestMatching():
+    best_match_score = 0
+    best_matching = []
+    for matching in possible:
+        score = 0
+        for guy in guys:
+            score += match_dictionary[guy][girls.index(matching[guys.index(guy)])]
+        #print("score " + str(score))
+        if score > best_match_score:
+            best_match_score = score
+            best_matching = matching
+    print("Best score " + str(best_match_score))
 
-best_string = ""
-for i in range(len(best_matching)):
-    best_string += '''||style="background:#CFCFCF"|''' + """'''"""+ guys[i] + ", " +best_matching[i]+"""'''"""
+    best_string = ""
+    for i in range(len(best_matching)):
+        best_string += '''||style="background:#CFCFCF"|''' + """'''"""+ guys[i] + ", " +best_matching[i]+"""'''"""
 
 def printBestMatching():
+    determineBestMatching()
     print('''{| class="wikitable"''')
     print("|-")
     print(best_string[1:])
@@ -176,7 +173,7 @@ def printTable():
     print('{| class="wikitable" style="text-align:right"')
     print("|-")
     #table header
-    print('! !! style="width:'+ colWidth+ '"|Amanda !! style="width:'+colWidth+'"|Britni !! style="width:'+colWidth+'"|Chelsey !! style="width:'+colWidth+'"|Cheyenne !! style="width:'+colWidth+'"|Hannah !! style="width:'+colWidth+'"|Kayla !! style="width:'+colWidth+'"|Kiki !! style="width:'+colWidth+'"|Melanie !! style="width:'+colWidth+'"|Rashida !! style="width:'+colWidth+'"|Stacey')
+    print('! !! style="width:'+ colWidth+ '"|Alyssa !! style="width:'+colWidth+'"|Camille !! style="width:'+colWidth+'"|Emma !! style="width:'+colWidth+'"|Francesca !! style="width:'+colWidth+'"|Julia !! style="width:'+colWidth+'"|Kaylen !! style="width:'+colWidth+'"|Mikala !! style="width:'+colWidth+'"|Nicole !! style="width:'+colWidth+'"|Tori !! style="width:'+colWidth+'"|Victoria')
     # table cells
     for key in sorted(match_dictionary.keys()):
         print("|-")
@@ -203,5 +200,8 @@ def printTable():
 
 printTable()
 
+
+#if not load_from_file: #save matches into a file
+#    pickle.dump(possible, open("allmatches.p", "wb"))
 
 

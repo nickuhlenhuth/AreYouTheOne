@@ -19,7 +19,7 @@ girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", 
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Stacey" was therfore with "Alec"
-week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Juia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
+week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
 
 
 #UPDATE THIS EVERY WEEK

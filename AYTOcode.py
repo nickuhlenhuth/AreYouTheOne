@@ -9,8 +9,8 @@ import pickle
 
 
 # Specifies whether the matches should be loaded from the match file
-# For the first time you run, make sure this is set to False.
-# Then you can change it to False in order to run faster.
+# For the first few times you run, make sure this is set to False.
+# Then you can change it to True in order to run faster.
 load_from_file = False
 
 # guys and girls in alphabetical order
@@ -18,7 +18,7 @@ guys = ["Asaf", "Cam", "Cameron", "Giovanni", "John", "Morgan", "Prosper", "Sam"
 girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", "Nicole", "Tori", "Victoria"]
 
 # (guesses, number of matches)
-# Corresponds to the guys list. ie: in week1, "Stacey" was therfore with "Alec"
+# Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
 week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
 
 
@@ -173,7 +173,7 @@ def printTable():
     print('{| class="wikitable" style="text-align:right"')
     print("|-")
     #table header
-    print('! !! style="width:'+ colWidth+ '"|Alyssa !! style="width:'+colWidth+'"|Camille !! style="width:'+colWidth+'"|Emma !! style="width:'+colWidth+'"|Francesca !! style="width:'+colWidth+'"|Julia !! style="width:'+colWidth+'"|Kaylen !! style="width:'+colWidth+'"|Mikala !! style="width:'+colWidth+'"|Nicole !! style="width:'+colWidth+'"|Tori !! style="width:'+colWidth+'"|Victoria')
+    print('! !! style="width:'+ colWidth+ '"|' + girls[0] + '!! style="width:'+colWidth+'"|' + girls[1] + '!! style="width:'+colWidth+'"|' + girls[2] + '!! style="width:'+colWidth+'"|' + girls[3] + '!! style="width:'+colWidth+'"|' + girls[4] + '!! style="width:'+colWidth+'"|' + girls[5] + '!! style="width:'+colWidth+'"|' + girls[6] + '!! style="width:'+colWidth+'"|' + girls[7] + '!! style="width:'+colWidth+'"|' + girls[8] + '!! style="width:'+colWidth+'"|' + girls[9])
     # table cells
     for key in sorted(match_dictionary.keys()):
         print("|-")

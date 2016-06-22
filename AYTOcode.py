@@ -11,7 +11,7 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first few times you run, make sure this is set to False.
 # Then you can change it to True in order to run faster.
-load_from_file = True
+load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
 guys = ["Asaf", "Cam", "Cameron", "Giovanni", "John", "Morgan", "Prosper", "Sam", "Stephen", "Tyler"]
@@ -20,14 +20,15 @@ girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
 week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
+week2 = (["Camille", "Julia", "Mikala", "Kaylen", "Nicole", "Alyssa", "Emma", "Francesca", "Tori", "Victoria"], 3)
 
 
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1]
+allWeeks = [week1, week2]
 
 # the matches that got denied in the truth booth
-truthBooth_denied = [("Prosper", "Tori")]
+truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = []
@@ -76,13 +77,11 @@ print("There are " + str(len(possible)) + " possible matchings!")
 match_dictionary = {}
 for guy in guys:
     match_dictionary[guy] = [0] * len(girls)
-print("done with dict init")
 
 # fill in dictionary
 for matching in possible:
     for guy in guys:
         match_dictionary[guy][girls.index(matching[guys.index(guy)])] += float(1)/len(possible)
-print("done with dict fill")
 
 #determine best matching
 def determineBestMatching():

@@ -21,17 +21,17 @@ girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", 
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
 week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
 week2 = (["Camille", "Julia", "Mikala", "Kaylen", "Nicole", "Alyssa", "Emma", "Francesca", "Tori", "Victoria"], 3)
-
+week3 = (["Camille", "Nicole", "Mikala", "Kaylen", "Victoria", "Francesca", "Emma", "Alyssa", "Tori", "Julia"], 4)
 
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2]
+allWeeks = [week1, week2, week3]
 
 # the matches that got denied in the truth booth
 truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = []
+truthBooth_confirmed = [("Cameron", "Mikala")]
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):

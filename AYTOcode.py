@@ -22,13 +22,14 @@ girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", 
 week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
 week2 = (["Camille", "Julia", "Mikala", "Kaylen", "Nicole", "Alyssa", "Emma", "Francesca", "Tori", "Victoria"], 3)
 week3 = (["Camille", "Nicole", "Mikala", "Kaylen", "Victoria", "Francesca", "Emma", "Alyssa", "Tori", "Julia"], 4)
-
+week4 = (["Camille", "Emma", "Mikala", "Kaylen", "Victoria", "Tori", "Nicole", "Alyssa", "Julia", "Francesca"], 4)
+week5 = (["Camille", "Emma", "Mikala", "Francesca", "Tori", "Julia", "Victoria", "Alyssa", "Nicole", "Kaylen"],4)
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3]
+allWeeks = [week1, week2, week3, week4, week5]
 
 # the matches that got denied in the truth booth
-truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia")]
+truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia"), ("Asaf", "Tori"), ("Giovanni", "Kaylen")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = [("Cameron", "Mikala")]

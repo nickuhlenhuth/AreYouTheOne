@@ -24,15 +24,17 @@ week2 = (["Camille", "Julia", "Mikala", "Kaylen", "Nicole", "Alyssa", "Emma", "F
 week3 = (["Camille", "Nicole", "Mikala", "Kaylen", "Victoria", "Francesca", "Emma", "Alyssa", "Tori", "Julia"], 4)
 week4 = (["Camille", "Emma", "Mikala", "Kaylen", "Victoria", "Tori", "Nicole", "Alyssa", "Julia", "Francesca"], 4)
 week5 = (["Camille", "Emma", "Mikala", "Francesca", "Tori", "Julia", "Victoria", "Alyssa", "Nicole", "Kaylen"],4)
+week6 = (["Camille", "Victoria", "Mikala", "Francesca", "Emma", "Tori", "Kaylen", "Alyssa", "Julia", "Nicole"],4)
+
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5]
+allWeeks = [week1, week2, week3, week4, week5, week6]
 
 # the matches that got denied in the truth booth
 truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia"), ("Asaf", "Tori"), ("Giovanni", "Kaylen")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = [("Cameron", "Mikala")]
+truthBooth_confirmed = [("Cameron", "Mikala"), ("Sam", "Alyssa")]
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):
@@ -198,6 +200,7 @@ def printTable():
                 matchPercents += "|| " + "%.0f%%" % (100*match_dictionary[key][i])
         print(matchPercents)
     print("|}")
+
 
 printTable()
 

@@ -25,13 +25,13 @@ week3 = (["Camille", "Nicole", "Mikala", "Kaylen", "Victoria", "Francesca", "Emm
 week4 = (["Camille", "Emma", "Mikala", "Kaylen", "Victoria", "Tori", "Nicole", "Alyssa", "Julia", "Francesca"], 4)
 week5 = (["Camille", "Emma", "Mikala", "Francesca", "Tori", "Julia", "Victoria", "Alyssa", "Nicole", "Kaylen"],4)
 week6 = (["Camille", "Victoria", "Mikala", "Francesca", "Emma", "Tori", "Kaylen", "Alyssa", "Julia", "Nicole"],4)
-
+week7 = (["Francesca", "Nicole", "Mikala", "Emma", "Kaylen", "Tori", "Victoria", "Alyssa", "Julia", "Camille"],4)
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6]
+allWeeks = [week1, week2, week3, week4, week5, week6, week7]
 
 # the matches that got denied in the truth booth
-truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia"), ("Asaf", "Tori"), ("Giovanni", "Kaylen")]
+truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia"), ("Asaf", "Tori"), ("Giovanni", "Kaylen"), ("Cam", "Victoria")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = [("Cameron", "Mikala"), ("Sam", "Alyssa")]
@@ -73,7 +73,13 @@ for matching in iterable:
         
 print("There are " + str(len(possible)) + " possible matchings!")
 
-
+def printRemaining():
+    for matching in possible:
+        printString = ""
+        for i in range(len(matching)):
+            printString = printString + ("("+guys[i]+", " + matching[i]+ ")")
+        print(printString)
+        print("")
 
 
 # initialize dictionary
@@ -111,6 +117,19 @@ def printBestMatching():
     print("|-")
     print(best_string[1:])
     print("""|}""")
+
+#print all remaining scores
+def printAllScores():
+    for matching in possible:
+        score = 0
+        for guy in guys:
+            score += match_dictionary[guy][girls.index(matching[guys.index(guy)])]
+        print("Score " + str(score))
+        printString = ""
+        for i in range(len(matching)):
+            printString = printString + ("("+guys[i]+", " + matching[i]+ ")")
+        print(printString)
+        print("")
 
 # prints the percent of possible matchings that contain each couple
 def printAll():
@@ -164,7 +183,7 @@ def printTable():
     color3 = "#FF3333" # 24->49
     color4 = "#E60000" # 50->74
     color5 = "#990000" # 75-99
-    color6 = "#00CC00" # 100
+    color6 = "#00CC00" # 100 from Truth Booth
     colWidth = "60px" #specifies the width of each column in the table
     
     #print key

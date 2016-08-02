@@ -1,18 +1,8 @@
 # AreYouTheOne
 
  Are You The One? Code
- 
  After Week 7, this code was able to determine the winning matching!
-Asaf, Kaylen
-Cam, Julia
-Cameron, Mikala
-Giovanni, Francesca
-John, Victoria
-Morgan, Tori
-Prosper, Emma
-Sam, Alyssa
-Stephen, Nicole
-Tyler, Camille
+(Asaf, Kaylen) (Cam, Julia) (Cameron, Mikala) (Giovanni, Francesca) (John, Victoria) (Morgan, Tori) (Prosper, Emma) (Sam, Alyssa) (Stephen, Nicole) (Tyler, Camille)
  
  Calculates the likelihoods of each couple being a perfect match (assuming all matches are equally likely).
  

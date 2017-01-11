@@ -11,30 +11,25 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first few times you run, make sure this is set to False.
 # Then you can change it to True in order to run faster.
-load_from_file = True #keep as True if you have the latest allmatches.p file!
+load_from_file = False #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Asaf", "Cam", "Cameron", "Giovanni", "John", "Morgan", "Prosper", "Sam", "Stephen", "Tyler"]
-girls = ["Alyssa", "Camille", "Emma", "Francesca", "Julia", "Kaylen", "Mikala", "Nicole", "Tori", "Victoria"]
+guys = ["Andre", "Derrick", "Edward", "Hayden", "Jaylan", "Joey", "MIchael", "Mike", "Osvaldo", "Ozzy", "Tyler"]
+girls = ["Alicia", "Carolina", "Casandra", "Gianna", "Hannah", "Kam", "Kari", "Kathryn", "Shannon", "Taylor", "Tyranny"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
-week1 = (["Francesca", "Victoria", "Mikala", "Kaylen", "Emma", "Julia", "Camille", "Alyssa", "Nicole", "Tori"], 3)
-week2 = (["Camille", "Julia", "Mikala", "Kaylen", "Nicole", "Alyssa", "Emma", "Francesca", "Tori", "Victoria"], 3)
-week3 = (["Camille", "Nicole", "Mikala", "Kaylen", "Victoria", "Francesca", "Emma", "Alyssa", "Tori", "Julia"], 4)
-week4 = (["Camille", "Emma", "Mikala", "Kaylen", "Victoria", "Tori", "Nicole", "Alyssa", "Julia", "Francesca"], 4)
-week5 = (["Camille", "Emma", "Mikala", "Francesca", "Tori", "Julia", "Victoria", "Alyssa", "Nicole", "Kaylen"],4)
-week6 = (["Camille", "Victoria", "Mikala", "Francesca", "Emma", "Tori", "Kaylen", "Alyssa", "Julia", "Nicole"],4)
-week7 = (["Francesca", "Nicole", "Mikala", "Emma", "Kaylen", "Tori", "Victoria", "Alyssa", "Julia", "Camille"],4)
+week1 = ([], )
+
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6, week7]
+allWeeks = []
 
-# the matches that got denied in the truth booth
-truthBooth_denied = [("Prosper", "Tori"), ("John", "Julia"), ("Asaf", "Tori"), ("Giovanni", "Kaylen"), ("Cam", "Victoria")]
+# the matches that got denied in the truth booth ("guy name", "girl name")
+truthBooth_denied = []
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = [("Cameron", "Mikala"), ("Sam", "Alyssa")]
+truthBooth_confirmed = []
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):
@@ -185,6 +180,11 @@ def printTable():
     color5 = "#990000" # 75-99
     color6 = "#00CC00" # 100 from Truth Booth
     colWidth = "60px" #specifies the width of each column in the table
+
+    #print Hide Begin
+    print('{{Hidden begin |showhide=left')
+    print('| titlestyle = background:pink;')
+    print('| title = Match Percentage Table}}')
     
     #print key
     print('{| class="wikitable"')
@@ -195,7 +195,7 @@ def printTable():
     print('{| class="wikitable" style="text-align:right"')
     print("|-")
     #table header
-    print('! !! style="width:'+ colWidth+ '"|' + girls[0] + '!! style="width:'+colWidth+'"|' + girls[1] + '!! style="width:'+colWidth+'"|' + girls[2] + '!! style="width:'+colWidth+'"|' + girls[3] + '!! style="width:'+colWidth+'"|' + girls[4] + '!! style="width:'+colWidth+'"|' + girls[5] + '!! style="width:'+colWidth+'"|' + girls[6] + '!! style="width:'+colWidth+'"|' + girls[7] + '!! style="width:'+colWidth+'"|' + girls[8] + '!! style="width:'+colWidth+'"|' + girls[9])
+    print('! !! style="width:'+ colWidth+ '"|' + girls[0] + '!! style="width:'+colWidth+'"|' + girls[1] + '!! style="width:'+colWidth+'"|' + girls[2] + '!! style="width:'+colWidth+'"|' + girls[3] + '!! style="width:'+colWidth+'"|' + girls[4] + '!! style="width:'+colWidth+'"|' + girls[5] + '!! style="width:'+colWidth+'"|' + girls[6] + '!! style="width:'+colWidth+'"|' + girls[7] + '!! style="width:'+colWidth+'"|' + girls[8] + '!! style="width:'+colWidth+'"|' + girls[9] + '!! style="width:'+colWidth+'"|' + girls[10])
     # table cells
     for key in sorted(match_dictionary.keys()):
         print("|-")
@@ -219,6 +219,9 @@ def printTable():
                 matchPercents += "|| " + "%.0f%%" % (100*match_dictionary[key][i])
         print(matchPercents)
     print("|}")
+
+    #print Hide End
+    print('{{Hidden end}}')
 
 
 printTable()

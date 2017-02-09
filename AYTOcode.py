@@ -11,22 +11,33 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first few times you run, make sure this is set to False.
 # Then you can change it to True in order to run faster.
-load_from_file = False #keep as True if you have the latest allmatches.p file!
+load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Andre", "Derrick", "Edward", "Hayden", "Jaylan", "Joey", "MIchael", "Mike", "Osvaldo", "Ozzy", "Tyler"]
+guys = ["Andre", "Derrick", "Edward", "Hayden", "Jaylan", "Joey", "Michael", "Mike", "Osvaldo", "Ozzy", "Tyler"]
 girls = ["Alicia", "Carolina", "Casandra", "Gianna", "Hannah", "Kam", "Kari", "Kathryn", "Shannon", "Taylor", "Tyranny"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
-week1 = ([], )
+week1 = (["Alicia", "Kathryn", "Kam", "Shannon", "Casandra", "Carolina", "Hannah", "Kari", "Tyranny", "Gianna", "Taylor"], 2)
+week2 = (["Hannah", "Alicia", "Shannon", "Taylor", "Kam", "Carolina", "Gianna", "Casandra", "Kari", "Kathryn", "Tyranny"], 0)
+week3 = (["Kari", "Hannah", "Kam", "Carolina", "Casandra", "Kathryn", "Taylor", "Alicia", "Tyranny", "Gianna", "Shannon"], 4)
+week4 = (["Casandra", "Gianna", "Alicia", "Carolina", "Tyranny", "Kathryn", "Kari", "Kam", "Taylor", "Hannah", "Shannon"], 4)
+
+
+#currentWeek stores the current weeks guesses, but before any Beams have been lit
+# This is used for blackout odds and beaem probabilities.
+# Don't worry about it if you just want to see the wiki table
+# Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
+# Ignore these probabilities once you've added the week's beam results to the allWeeks list.
+currentWeek = ["Casandra", "Gianna", "Alicia", "Carolina", "Tyranny", "Kathryn", "Kari", "Kam", "Taylor", "Hannah", "Shannon"]
 
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = []
+allWeeks = [week1, week2, week3, week4]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = []
+truthBooth_denied = [("Hayden", "Gianna"), ("Andre", "Alicia"), ("Ozzy", "Carolina"), ("Osvaldo", "Tyranny")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = []
@@ -76,6 +87,63 @@ def printRemaining():
         print(printString)
         print("")
 
+#Determine how many couples are the same between 2 matchings
+#Oops, just realized this is the same function as 'correlation'
+def couplesInCommon(matching1, matching2):
+    count = 0
+    for i in range(0, len(matching1)):
+        if matching2[i] == matching1[i]:
+            count = count + 1
+    return count
+
+def makePercent(n):
+    return (float(n) / len(possible))*100
+
+#Determine the odds of a blackout
+# What percent of remaining possible matchings contain 0 of this week's couples?
+beamDistribution = [0] * (len(girls)+1)
+for matching in possible:
+    commonCount = couplesInCommon(matching, currentWeek)
+    beamDistribution[commonCount] = beamDistribution[commonCount] + 1
+
+mostLikelyBeamCount = 0
+maxBeamCount = 0
+highestBeamIndex = 0
+lowestBeamIndex = 0
+for i in range(0, len(beamDistribution)-1):
+    beamCount = beamDistribution[i]
+    if beamCount != 0:
+        highestBeamIndex = i
+    if beamCount > maxBeamCount:
+        maxBeamCount = beamCount
+        mostLikelyBeamCount = i
+for i in range(0, len(beamDistribution)-1):
+    beamCount = beamDistribution[i]
+    if beamCount != 0:
+        lowestBeamIndex = i
+        break
+
+#excludes truth booth perfect matches
+blackOutPercent = makePercent(beamDistribution[len(truthBooth_confirmed)])
+
+
+#Beam Distribution Percentages
+distString = ''
+for i in range(0, len(beamDistribution)-1):
+    distString = distString + ', '+ str(makePercent(beamDistribution[i]))[:str(makePercent(beamDistribution[i])).index('.')]+'%'
+
+#Print tweet format
+print('Beam Probabilities: [' + distString[2:] + ']')
+print('Most likely Beam Count: ' + str(mostLikelyBeamCount))
+#print('Max Beam Count: ' + str(highestBeamIndex))
+print('Blackout Odds: ' + str(blackOutPercent)+'%')
+print('#AYTO  @AREUTHE1')
+
+print('')
+    
+    
+        
+    
 
 # initialize dictionary
 match_dictionary = {}

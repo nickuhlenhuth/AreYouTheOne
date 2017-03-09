@@ -26,22 +26,24 @@ week4 = (["Casandra", "Gianna", "Alicia", "Carolina", "Tyranny", "Kathryn", "Kar
 week5 = (["Taylor", "Tyranny", "Kam", "Carolina", "Casandra", "Kathryn", "Kari", "Alicia", "Gianna", "Hannah", "Shannon"], 4)
 week6 = (["Taylor", "Tyranny", "Kam", "Carolina", "Hannah", "Kathryn", "Kari", "Alicia", "Gianna", "Casandra", "Shannon"], 4)
 week7 = (["Casandra", "Kari", "Kam", "Carolina", "Tyranny", "Kathryn", "Hannah", "Gianna", "Taylor", "Alicia", "Shannon"], 4)
+week8 = (["Gianna", "Shannon", "Kam", "Carolina", "Tyranny", "Casandra", "Kathryn", "Kari", "Taylor", "Alicia", "Hannah"], 5)
+week9 = (["Kathryn", "Casandra", "Kam", "Carolina", "Tyranny", "Hannah", "Kari", "Alicia", "Taylor", "Gianna", "Shannon"], 9)
 
 #currentWeek stores the current weeks guesses, but before any Beams have been lit
 # This is used for blackout odds and beaem probabilities.
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Casandra", "Kari", "Kam", "Carolina", "Tyranny", "Kathryn", "Hannah", "Gianna", "Taylor", "Alicia", "Shannon"]
+currentWeek = ["Kathryn", "Casandra", "Kam", "Carolina", "Tyranny", "Hannah", "Kari", "Alicia", "Taylor", "Gianna", "Shannon"]
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6, week7]
+allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8, week9]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
 truthBooth_denied = [("Hayden", "Gianna"), ("Andre", "Alicia"), ("Ozzy", "Carolina"), ("Osvaldo", "Tyranny"), ("Ozzy", "Hannah"), ("Andre", "Taylor")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = [("Edward", "Kam")]
+truthBooth_confirmed = [("Edward", "Kam"), ("Hayden", "Carolina")]
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):
@@ -111,7 +113,7 @@ mostLikelyBeamCount = 0
 maxBeamCount = 0
 highestBeamIndex = 0
 lowestBeamIndex = 0
-for i in range(0, len(beamDistribution)-1):
+for i in range(0, len(beamDistribution)):
     beamCount = beamDistribution[i]
     if beamCount != 0:
         highestBeamIndex = i
@@ -130,7 +132,7 @@ blackOutPercent = makePercent(beamDistribution[len(truthBooth_confirmed)])
 
 #Beam Distribution Percentages
 distString = ''
-for i in range(0, len(beamDistribution)-1):
+for i in range(0, len(beamDistribution)):
     distString = distString + ', '+ str(makePercent(beamDistribution[i]))[:str(makePercent(beamDistribution[i])).index('.')]+'%'
 
 #Print tweet format

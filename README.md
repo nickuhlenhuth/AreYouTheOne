@@ -2,7 +2,7 @@
 
  Are You The One? Code
  
- NEW FEATURE: Blackout odds and Beam probabilities. Before the number of lights are revealed, but the current week's guesses into the currentWeek variable and run the code. It will print out the blackout odds and the liklihood of each beam count.
+ NEW FEATURE: Blackout odds and Beam probabilities. Before the number of lights are revealed, put the current week's guesses into the currentWeek variable and run the code. It will print out the blackout odds and the liklihood of each beam count.
  
  
  After Week 7, this code was able to determine the winning matching for Season 3!

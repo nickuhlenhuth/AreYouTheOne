@@ -14,36 +14,36 @@ import pickle
 load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Andre", "Derrick", "Edward", "Hayden", "Jaylan", "Joey", "Michael", "Mike", "Osvaldo", "Ozzy", "Tyler"]
-girls = ["Alicia", "Carolina", "Casandra", "Gianna", "Hannah", "Kam", "Kari", "Kathryn", "Shannon", "Taylor", "Tyranny"]
+guys = ["Anthony", "Clinton", "David", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcom", "Michael", "Tyler"]
+girls = ["Alexis", "Alivia", "Audrey", "Diandra", "Geles", "Jada", "Keyana", "Nicole", "Nurys", "Uche", "Zoe"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
-week1 = (["Alicia", "Kathryn", "Kam", "Shannon", "Casandra", "Carolina", "Hannah", "Kari", "Tyranny", "Gianna", "Taylor"], 2)
-week2 = (["Hannah", "Alicia", "Shannon", "Taylor", "Kam", "Carolina", "Gianna", "Casandra", "Kari", "Kathryn", "Tyranny"], 0)
-week3 = (["Kari", "Hannah", "Kam", "Carolina", "Casandra", "Kathryn", "Taylor", "Alicia", "Tyranny", "Gianna", "Shannon"], 4)
-week4 = (["Casandra", "Gianna", "Alicia", "Carolina", "Tyranny", "Kathryn", "Kari", "Kam", "Taylor", "Hannah", "Shannon"], 4)
-week5 = (["Taylor", "Tyranny", "Kam", "Carolina", "Casandra", "Kathryn", "Kari", "Alicia", "Gianna", "Hannah", "Shannon"], 4)
-week6 = (["Taylor", "Tyranny", "Kam", "Carolina", "Hannah", "Kathryn", "Kari", "Alicia", "Gianna", "Casandra", "Shannon"], 4)
-week7 = (["Casandra", "Kari", "Kam", "Carolina", "Tyranny", "Kathryn", "Hannah", "Gianna", "Taylor", "Alicia", "Shannon"], 4)
-week8 = (["Gianna", "Shannon", "Kam", "Carolina", "Tyranny", "Casandra", "Kathryn", "Kari", "Taylor", "Alicia", "Hannah"], 5)
-week9 = (["Kathryn", "Casandra", "Kam", "Carolina", "Tyranny", "Hannah", "Kari", "Alicia", "Taylor", "Gianna", "Shannon"], 9)
+week1 = (["Geles", "Uche", "Audrey", "Diandra", "Jada", "Zoe", "Alivia", "Alexis", "Nurys", "Keyana", "Nicole"], 3)
+week2 = (["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Olivia", "Alexis", "Nurys", "Keyana", "Zoe"], 1)
+week3 = ([], 0)
+week4 = ([], 0)
+week5 = ([], 0)
+week6 = ([], 0)
+week7 = ([], 0)
+week8 = ([], 0)
+week9 = ([], 0)
 
 #currentWeek stores the current weeks guesses, but before any Beams have been lit
 # This is used for blackout odds and beaem probabilities.
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Kathryn", "Casandra", "Kam", "Carolina", "Tyranny", "Hannah", "Kari", "Alicia", "Taylor", "Gianna", "Shannon"]
+currentWeek = ["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Olivia", "Alexis", "Nurys", "Keyana", "Zoe"]
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8, week9]
+allWeeks = [week1, week2]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = [("Hayden", "Gianna"), ("Andre", "Alicia"), ("Ozzy", "Carolina"), ("Osvaldo", "Tyranny"), ("Ozzy", "Hannah"), ("Andre", "Taylor")]
+truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = [("Edward", "Kam"), ("Hayden", "Carolina")]
+truthBooth_confirmed = []
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):

@@ -14,14 +14,14 @@ import pickle
 load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Anthony", "Clinton", "David", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcom", "Michael", "Tyler"]
+guys = ["Anthony", "Clinton", "David", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Tyler"]
 girls = ["Alexis", "Alivia", "Audrey", "Diandra", "Geles", "Jada", "Keyana", "Nicole", "Nurys", "Uche", "Zoe"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
 week1 = (["Geles", "Uche", "Audrey", "Diandra", "Jada", "Zoe", "Alivia", "Alexis", "Nurys", "Keyana", "Nicole"], 3)
-week2 = (["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Olivia", "Alexis", "Nurys", "Keyana", "Zoe"], 1)
-week3 = ([], 0)
+week2 = (["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Alivia", "Alexis", "Nurys", "Keyana", "Zoe"], 1)
+week3 = (["Jada", "Uche", "Keyana", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Nicole"], 2)
 week4 = ([], 0)
 week5 = ([], 0)
 week6 = ([], 0)
@@ -34,13 +34,13 @@ week9 = ([], 0)
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Olivia", "Alexis", "Nurys", "Keyana", "Zoe"]
+currentWeek = ["Jada", "Uche", "Keyana", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Nicole"]
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2]
+allWeeks = [week1, week2, week3]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles")]
+truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = []

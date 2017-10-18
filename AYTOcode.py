@@ -11,7 +11,7 @@ import pickle
 # Specifies whether the matches should be loaded from the match file
 # For the first few times you run, make sure this is set to False.
 # Then you can change it to True in order to run faster.
-load_from_file = True #keep as True if you have the latest allmatches.p file!
+load_from_file = False #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
 guys = ["Anthony", "Clinton", "David", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Tyler"]

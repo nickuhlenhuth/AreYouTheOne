@@ -1,5 +1,5 @@
 import itertools
-import pickle
+import pickle #using Python 3.6.3
 #---------------------
 # Are You The One? Code
 # Calculates the likelihoods of each couple being a perfect match (assuming all matches are equally likely)
@@ -14,17 +14,17 @@ import pickle
 load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Anthony", "Clinton", "David", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Tyler"]
+guys = ["Anthony", "Clinton", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Shad" "Tyler"]
 girls = ["Alexis", "Alivia", "Audrey", "Diandra", "Geles", "Jada", "Keyana", "Nicole", "Nurys", "Uche", "Zoe"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
-week1 = (["Geles", "Uche", "Audrey", "Diandra", "Jada", "Zoe", "Alivia", "Alexis", "Nurys", "Keyana", "Nicole"], 3)
-week2 = (["Diandra", "Uche", "Geles", "Nicole", "Jada", "Audrey", "Alivia", "Alexis", "Nurys", "Keyana", "Zoe"], 1)
-week3 = (["Jada", "Uche", "Keyana", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Nicole"], 2)
-week4 = ([], 0)
-week5 = ([], 0)
-week6 = ([], 0)
+week1 = (["Geles", "Uche", "Diandra", "Jada", "Zoe", "Alivia", "Alexis", "Nurys", "Keyana", "Audrey", "Nicole"], 3)
+week2 = (["Diandra", "Uche", "Nicole", "Jada", "Audrey", "Alivia", "Alexis", "Nurys", "Keyana", "Geles", "Zoe"], 1)
+week3 = (["Jada", "Uche", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Keyana", "Nicole"], 2)
+week4 = (["Keyana", "Uche", "Alexis", "Nicole", "Zoe", "Diandra", "Nurys", "Alivia", "Geles", "Audrey", "Jada"], 3)
+week5 = (["Nicole", "Jada", "Uche", "Geles", "Zoe", "Alivia", "Alexis", "Diandra", "Nurys", "Audrey", "Keyana"], 1)
+week6 = (["Keyana", "Geles", "Diandra", "Jada", "Alexis", "Nurys", "Zoe", "Alivia", "Uche", "Audrey", "Nicole"], 4)
 week7 = ([], 0)
 week8 = ([], 0)
 week9 = ([], 0)
@@ -34,13 +34,13 @@ week9 = ([], 0)
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Jada", "Uche", "Keyana", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Nicole"]
+currentWeek = ["Keyana", "Geles", "Diandra", "Jada", "Alexis", "Nurys", "Zoe", "Alivia", "Uche", "Audrey", "Nicole"]
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3]
+allWeeks = [week1, week2, week3, week4, week5, week6]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys")]
+truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys"), ("Dimitri", "Nicole"), ("Clinton", "Uche"), ("Keith", "Alexis")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = []

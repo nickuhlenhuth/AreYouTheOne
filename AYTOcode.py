@@ -25,8 +25,8 @@ week3 = (["Jada", "Uche", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles"
 week4 = (["Keyana", "Uche", "Alexis", "Nicole", "Zoe", "Diandra", "Nurys", "Alivia", "Geles", "Audrey", "Jada"], 3)
 week5 = (["Nicole", "Jada", "Uche", "Geles", "Zoe", "Alivia", "Alexis", "Diandra", "Nurys", "Audrey", "Keyana"], 1)
 week6 = (["Keyana", "Geles", "Diandra", "Jada", "Alexis", "Nurys", "Zoe", "Alivia", "Uche", "Audrey", "Nicole"], 4)
-week7 = ([], 0)
-week8 = ([], 0)
+week7 = (["Keyana", "Geles", "Diandra", "Zoe", "Uche", "Nurys", "Jada", "Alexis", "Audrey", "Alivia", "Nicole"], 5)
+week8 = (["Alivia", "Geles", "Diandra", "Alexis", "Jada", "Nurys", "Audrey", "Uche", "Keyana", "Zoe", "Nicole"], 3)
 week9 = ([], 0)
 
 #currentWeek stores the current weeks guesses, but before any Beams have been lit
@@ -34,13 +34,13 @@ week9 = ([], 0)
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Keyana", "Geles", "Diandra", "Jada", "Alexis", "Nurys", "Zoe", "Alivia", "Uche", "Audrey", "Nicole"]
+currentWeek = ["Alivia", "Geles", "Diandra", "Alexis", "Jada", "Nurys", "Audrey", "Uche", "Keyana", "Zoe", "Nicole"]
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6]
+allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys"), ("Dimitri", "Nicole"), ("Clinton", "Uche"), ("Keith", "Alexis")]
+truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys"), ("Dimitri", "Nicole"), ("Clinton", "Uche"), ("Keith", "Alexis"), ("Keith", "Alivia"), ("Michael", "Audrey")]
 
 # the matches that were confirmed in the truth booth
 truthBooth_confirmed = []
@@ -300,5 +300,3 @@ printTable()
 
 if not load_from_file: #save matches into a file
     pickle.dump(possible, open("allmatches.p", "wb"))
-
-

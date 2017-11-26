@@ -14,7 +14,7 @@ import pickle #using Python 3.6.3
 load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Anthony", "Clinton", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Shad" "Tyler"]
+guys = ["Anthony", "Clinton", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Shad", "Tyler"]
 girls = ["Alexis", "Alivia", "Audrey", "Diandra", "Geles", "Jada", "Keyana", "Nicole", "Nurys", "Uche", "Zoe"]
 
 # (guesses, number of matches)
